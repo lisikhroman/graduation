@@ -1,6 +1,6 @@
 package ru.javawebinar.topjava.graduation.repository;
 
-import ru.javawebinar.topjava.model.Meal;
+import ru.javawebinar.topjava.graduation.model.Meal;
 
 import java.time.LocalDateTime;
 import java.util.List;

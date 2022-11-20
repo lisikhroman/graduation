@@ -2,8 +2,8 @@ package ru.javawebinar.topjava.graduation.repository.datajpa;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
-import ru.javawebinar.topjava.model.User;
-import ru.javawebinar.topjava.repository.UserRepository;
+import ru.javawebinar.topjava.graduation.model.User;
+import ru.javawebinar.topjava.graduation.repository.UserRepository;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package ru.javawebinar.topjava.graduation.repository.datajpa;
 
 import org.springframework.stereotype.Repository;
-import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.repository.MealRepository;
+import ru.javawebinar.topjava.graduation.model.Meal;
+import ru.javawebinar.topjava.graduation.repository.MealRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,27 +17,27 @@ public class DataJpaMealRepository implements MealRepository {
     }
 
     @Override
-    public Meal save(Meal meal, int userId) {
+    public Meal save(Meal meal, int restaurantId) {
         return null;
     }
 
     @Override
-    public boolean delete(int id, int userId) {
+    public boolean delete(int id, int restaurantId) {
         return false;
     }
 
     @Override
-    public Meal get(int id, int userId) {
+    public Meal get(int id, int restaurantId) {
         return null;
     }
 
     @Override
-    public List<Meal> getAll(int userId) {
+    public List<Meal> getAll(int restaurantId) {
         return null;
     }
 
     @Override
-    public List<Meal> getBetweenHalfOpen(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
+    public List<Meal> getBetweenHalfOpen(LocalDateTime startDateTime, LocalDateTime endDateTime, int restaurantId) {
         return null;
     }
 }

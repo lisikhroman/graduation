@@ -1,6 +1,6 @@
 package ru.javawebinar.topjava.graduation.repository;
 
-import ru.javawebinar.topjava.model.User;
+import ru.javawebinar.topjava.graduation.model.User;
 
 import java.util.List;
 
