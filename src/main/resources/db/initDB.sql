@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS user_roles;
+DROP TABLE IF EXISTS poll;
 DROP TABLE IF EXISTS restaurant_menus;
 DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS users;
@@ -29,11 +30,9 @@ CREATE TABLE restaurants
 (
     id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     restaurant_id     INTEGER   NOT NULL,
-    name             VARCHAR                           NOT NULL,
-    date_time   TIMESTAMP NOT NULL,
-    number_of_votes  INTEGER   NOT NULL
+    name             VARCHAR                           NOT NULL
 );
-CREATE UNIQUE INDEX restaurants_unique_id_idx ON restaurants (restaurant_id, date_time);
+CREATE UNIQUE INDEX restaurants_unique_id_idx ON restaurants (restaurant_id);
 
 CREATE TABLE restaurant_menus
 (
@@ -44,3 +43,12 @@ CREATE TABLE restaurant_menus
     meal_price    INTEGER       NOT NULL
 );
 CREATE UNIQUE INDEX meals_unique_restaurants_datetime_idx ON restaurant_menus (restaurant_id, date_time, meal_name);
+
+CREATE TABLE poll
+(
+    id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    restaurant_id     INTEGER   NOT NULL,
+    user_id     INTEGER   NOT NULL,
+    date_time   TIMESTAMP NOT NULL
+);
+CREATE UNIQUE INDEX polls_unique_restaurants_users_datetime_idx ON poll (restaurant_id, user_id, date_time);

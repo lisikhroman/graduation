@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.graduation.model.Meal;
 import ru.javawebinar.topjava.graduation.model.Restaurant;
-import ru.javawebinar.topjava.graduation.model.User;
 import ru.javawebinar.topjava.graduation.repository.MealRepository;
 
 import javax.persistence.EntityManager;

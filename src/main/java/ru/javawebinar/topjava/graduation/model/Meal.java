@@ -1,9 +1,15 @@
 package ru.javawebinar.topjava.graduation.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
+import ru.javawebinar.topjava.graduation.View;
+import ru.javawebinar.topjava.graduation.util.DateTimeUtil;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -35,6 +41,7 @@ public class Meal extends AbstractBaseEntity {
 
     @Column(name = "date_time", nullable = false)
     @NotNull
+    @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
     private LocalDateTime dateTime;
 
     @Column(name = "meal_name", nullable = false)
@@ -51,15 +58,12 @@ public class Meal extends AbstractBaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
-    @NotNull
-    @ToString.Exclude
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
+    @NotNull(groups = View.Persist.class)
     private Restaurant restaurant;
 
     public Meal() {
-    }
-
-    public Meal(LocalDateTime dateTime, String mealName, int mealPrice) {
-        this(null, dateTime, mealName, mealPrice);
     }
 
     public Meal(Integer id, LocalDateTime dateTime, String mealName, int mealPrice) {

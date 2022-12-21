@@ -1,54 +1,31 @@
 package ru.javawebinar.topjava.graduation.to;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.beans.ConstructorProperties;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-public class MealTo {
-    private final Integer id;
-
+@ToString
+@Getter
+@Setter
+public class MealTo extends BaseTo {
     private final LocalDateTime dateTime;
+    private final String mealName;
+    private final int mealPrice;
 
-    private final String description;
-
-    private final int calories;
-
-    private final boolean excess;
-
-    public MealTo(Integer id, LocalDateTime dateTime, String description, int calories, boolean excess) {
-        this.id = id;
+    @ConstructorProperties({"id", "dateTime", "description", "calories", "excess"})
+    public MealTo(Integer id, LocalDateTime dateTime, String description, int calories) {
+        super(id);
         this.dateTime = dateTime;
-        this.description = description;
-        this.calories = calories;
-        this.excess = excess;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getCalories() {
-        return calories;
-    }
-
-    public boolean isExcess() {
-        return excess;
+        this.mealName = description;
+        this.mealPrice = calories;
     }
 
     @Override
-    public String toString() {
-        return "MealTo{" +
-                "id=" + id +
-                ", dateTime=" + dateTime +
-                ", description='" + description + '\'' +
-                ", calories=" + calories +
-                ", excess=" + excess +
-                '}';
+    public int hashCode() {
+        return Objects.hash(id, dateTime, mealName, mealPrice);
     }
 }
